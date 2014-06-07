@@ -1,7 +1,7 @@
 # coding=utf8
 import traceback, sys, re, time
 
-import Irc, Transactions, Commands
+import Irc, Commands
 
 hooks = {}
 
@@ -38,16 +38,7 @@ class Request(object):
 
 def message(serv, source, target, text):
 	host = Irc.get_host(source)
-	if host == "lucas.fido.pw":
-		m = re.match(r"Wow!  (\S*) just sent you Ð\d*\.", text)
-		if not m:
-			m = re.match(r"Wow!  (\S*) sent Ð\d* to Doger!", text)
-		if m:
-			nick = m.group(1)
-			address = Transactions.deposit_address(Irc.toupper(nick))
-			serv.send("PRIVMSG", "fido", "withdraw " + address.encode("utf8"))
-			serv.send("PRIVMSG", nick, "Your tip has been withdrawn to your account and will appear in %balance soon")
-	elif text[0] == '%' or target == serv.nick:
+	if text[0] == '%' or target == serv.nick:
 		if serv.is_ignored(host):
 			print(serv.nick + ": (ignored) <" + Irc.get_nickname(source) + "> " + text)
 			return
