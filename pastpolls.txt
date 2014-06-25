@@ -1,8 +1,0 @@
-
-
-
-
-{'valid': ['linux', 'windows', 'mac', 'other'], 'question': ['What'], 'answers': {}}
-{'valid': ['linux', 'windows', 'mac', 'other'], 'question': 'What is your favorite', 'answers': {}}
-{'valid': ['linux', 'windows', 'mac', 'unix', 'other'], 'question': 'What is your favorite OS?', 'answers': {'GrinningFool': 'linux', 'gkbrk': 'linux', 'ruan': 'linux', 'TomRiddle': 'windows', 'Panacea': 'linux', 'Codica': 'windows', 'mniip': 'other', 'Dark-Fx': 'linux', 'Vinnyceptr': 'linux', 'TheDoctorisaDoge': 'mac'}}
-{'valid': ['Doger', 'dogetip', 'BlasterBot', 'tipbot', 'tipulator'], 'question': 'What is your favorite tipbot?', 'answers': {}}
