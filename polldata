@@ -1,0 +1,1 @@
+{'valid': ['ubuntu', 'debian', 'gentoo', 'elementary', 'arch', 'puppy', 'mint', 'fedora', 'suse'], 'question': 'What is your favorite Linux distro?', 'answers': {'Codica': 'ubuntu', 'ruan': 'arch', '^v': 'debian', 'TheDoctorisaDoge': 'elementary', 'beatrixmarie': 'debian'}}

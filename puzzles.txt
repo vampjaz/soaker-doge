@@ -1,0 +1,21 @@
+{
+	"1":{"q":"R3Z6ciBuYXEgZXJ5bmd2aXIgcXZ6cmFmdmJhIHZhIF9fX19fPw==","a":"space"},
+	"2":{"q":"6cb937c6898f0f10ef7152260e121592dc9e4909d3c6654dfd0dbbc7ce1af034","a":"Donate"},
+	"3":{"q":"Next number in sequence: 22333,2233,2223,3213,?","a":"13121113"},
+	"4":{"q":"Owyxgb bb Bigr Ysq Ehb vpcm buh ______?","a":"guitar"},
+	"5":{"q":"We're on a mission here! Oh, I thought this was a bakery. (number)","a":"452"},
+	"6":{"q":"U+0001f34e U+0001f6aa is in which tv series?","a":"Sherlock"},
+	"7":{"q":"D0geco1n b10ck noncesense","a":"1963854080"},
+	"8":{"q":"815d1614631453f7362d7dc6fa15936a is the md5 hash of a base64 encoded integer.","a":"748337"},
+	"9":{"q":"","a":""},
+	"10":{"q":"","a":""},
+	"11":{"q":"","a":""},
+	"12":{"q":"","a":""},
+	"13":{"q":"","a":""},
+	"14":{"q":"","a":""},
+	"15":{"q":"","a":""},
+	"16":{"q":"","a":""},
+	"17":{"q":"","a":""},
+	"18":{"q":"","a":""}
+}
+	
