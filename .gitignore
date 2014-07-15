@@ -1,3 +1,8 @@
 *.pyc
 Config.py
 *.log
+currentpuzz
+docnotes.txt
+pastpolls.txt
+polldata
+puzzles.txt

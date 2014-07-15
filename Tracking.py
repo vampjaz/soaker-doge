@@ -1,7 +1,7 @@
 import time
 
 # User activity tracking
-exemptusrs = ['tipbot','fido','dogesrv','doger','dogexm','activeshibes','hardc0re','tipulator','codicai','dogetip','blasterbot','dogedicer','keksbotz','fidoge']
+exemptusrs = ['dogesrv','doger','dogexm','activeshibes','hardc0re','tipulator','codicai','dogetip','blasterbot','dogedicer','keksbotz','doge_soaker','dogeai']
 activeusrs = {}
 registered = {}
 
@@ -25,3 +25,6 @@ def activity(nick,chan,serv):
 
 def who_rep(nick):
     registered[nick] = True
+
+def acct_notify(user,acct):
+    registered[user.split('!')[0]] = acct!='*'

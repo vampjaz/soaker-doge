@@ -27,11 +27,12 @@ class IrcServer:
 	def connect(self):
 		host = random.choice(socket.gethostbyname_ex(Config.config["host"])[2])
 		self.connection = socket.create_connection((host, Config.config["port"]), None)
-		self.connection.settimeout(None)
+		self.connection.settimeout(240)
 		self.buffer = ''
 		self.send("NICK", self.nick)
 		self.send("USER", Config.config["user"], "*", "*", Config.config["rname"])
 		self.send("NS", "identify " + Config.config["password"])
+		self.send("CAP", "REQ", "extended-join account-notify")
 
 	def disconnect(self):
 		self.send("QUIT")

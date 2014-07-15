@@ -10,13 +10,48 @@ def end_of_motd(serv, *_):
 		serv.send("JOIN", channel)
 hooks["376"] = end_of_motd
 
+lastp = time.time()
 def ping(serv, *_):
+	global lastp
+	if time.time() > lastp + 400:
+		print 'Ping timeout?'
+	lastp = time.time()
 	serv.send("PONG")
 hooks["PING"] = ping
 
 def whois_reply(serv,source,target,text,*_):
 	Commands.Tracking.who_rep(text)
 hooks['330'] = whois_reply
+
+def account_notify(serv,source,target,*_):
+	Commands.Tracking.acct_notify(source,target)
+hooks['ACCOUNT'] = account_notify
+
+def error(serv,*_):
+	serv.disconnect()
+	serv.connect()
+hooks['ERROR'] = error
+
+def nick(serv,source,a,*_):
+	s = source
+	print '----'+s
+	for i in Commands.Tracking.activeusrs.keys():
+		try:
+			del Commands.Tracking.activeusrs[i][s]
+		except:
+			pass
+hooks['NICK'] = nick
+
+def part(serv,source,a,*_):
+	s = source
+	print '----'+s
+	for i in Commands.Tracking.activeusrs.keys():
+		try:
+			del Commands.Tracking.activeusrs[i][s]
+		except:
+			pass
+hooks['PART'] = part
+hooks['QUIT'] = part
 
 class Request(object):
 	def __init__(self, serv, target, source):
@@ -46,14 +81,18 @@ class Request(object):
 def message(serv, source, target, text):
 	host = Irc.get_host(source)
 	Commands.Tracking.activity(source,target,serv)
-	'''if target == serv.nick and source.split('!',1)[0] == 'Doger' and 'has tipped you' in text:
+	if target != serv.nick and source == 'Doger!~Doger@doger.dogecoinirc.com' and 'tipped' in text and 'to dogesoak' in text.lower():
 		try:
-			req = Request(serv, target, source)
-			val = int(text.split('you ',1)[1][2:].split(' ',1)[0])
-			req.say('tipped ' + str(val))
-			#Commands.soak(req,val)
+			usr = text.split()[1]
+			req = Request(serv, target, usr)
+			val = int(text.split('much ',1)[1][2:].split(' ',1)[0])
+			try:
+				Commands.soak(req,[str(val)])
+			except:
+				req.say('An error occurred.')
+				#req.serv.send('PRIVMSG','Doger','tip ')
 		except:
-			print 'soaker error' '''
+			print 'soaker error' 
 	if Commands.lreq and target == serv.nick and source.split('!',1)[0] == 'Doger':
 		Commands.balancerepl(text)
 	if text[0] == '!' or target == serv.nick:

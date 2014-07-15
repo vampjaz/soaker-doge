@@ -12,6 +12,11 @@ def thread(nick, channels):
 		try:
 			irc.loop()
 			break
+		except socket.timeout:
+			irc.disconnect()
+			irc.connect()
+		except KeyboardInterrupt:
+			sys.exit(0)
 		except Exception as e:
 			type, value, tb = sys.exc_info()
 			print(nick + " ===============")
