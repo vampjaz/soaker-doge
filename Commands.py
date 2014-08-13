@@ -52,7 +52,7 @@ def soak(req,arg):
             if Tracking.registered[i] and i != req.source:
                 activeu.append(i)
     val = int(arg[0])/len(activeu)
-    if val < 10:            #minimum
+    if val < 2:            #minimum
         req.serv.send('PRIVMSG','Doger','!tip ' + req.source + ' ' + str(int(arg[0])))
         req.say('Returning tip - not enough to go around')
         return
